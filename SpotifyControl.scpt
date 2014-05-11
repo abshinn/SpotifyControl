@@ -14,6 +14,7 @@ on run argv
 		set msg to msg & "  shuffle            - Toggle shuffle\n"
 		set msg to msg & "  repeat             - Toggle repeat\n"
 		set msg to msg & "  volume N           - Set Volume to N (0...100)\n"
+		set msg to msg & "  quit               - Quit Spotify\n"
 		return msg
 	end if
 	set command to item 1 of argv
@@ -137,6 +138,11 @@ on run argv
 				if repeating then set info to info & "\n Repeat is on."
 			end tell
 			return info
+
+		else if command is equal to "quit" then
+            tell application "Spotify"
+                quit
+            end tell
 		end if
 		
 		tell application "Spotify"
