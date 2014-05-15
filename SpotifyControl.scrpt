@@ -13,7 +13,7 @@ on run argv
 		set msg to msg & "  rewind N           - Jump N seconds backwards\n"
 		set msg to msg & "  shuffle            - Toggle shuffle\n"
 		set msg to msg & "  repeat             - Toggle repeat\n"
-		set msg to msg & "  volume N           - Set Volume to N (0...100)\n"
+		set msg to msg & "  vol[ume] N         - Set Volume to N (0...100)\n"
 		set msg to msg & "  quit               - Quit Spotify\n"
 		return msg
 	end if
@@ -93,7 +93,7 @@ on run argv
 				return "Jumped to " & newTime
 			end tell
 			
-		else if command is equal to "volume" then
+		else if command is equal to "volume" or command is equal to "vol" then
 			set newVolume to item 2 of argv as real
 			if newVolume < 0 then set newVolume to 0
 			if newVolume > 100 then set newVolume to 100
