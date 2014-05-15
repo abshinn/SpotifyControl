@@ -1,7 +1,6 @@
 # SpotifyControl.scpt - Control Spotify in OS X Terminal
 
-This is a AppleScript for controlling Spotify through
-Terminal.app.
+This is a AppleScript for controlling Spotify through Terminal.app.
 
 The scenario for which it was originally designed is controlling Spotify,
 which is playing on a Mac, via ssh, while working on a Linux computer 
@@ -17,6 +16,14 @@ No guarantees.
 
 You may use, adapt, modify etc. any way you want.
 
+ 
+## Adaptation notes
+
+Some small changes:
+* added `quit`
+* shortend `spotify` to `spot`
+* added short-hand for `volume N` => `vol N`
+
 
 ## Installation
 
@@ -25,37 +32,38 @@ you know enough about terminal usage.
 
 The simplest way to install the script is just to just download the 
 script file from the GitHub page and add the line `alias 
-spotify="osascript /path/to/SpotifyControl.scpt"` in your `.profile`.
+spot="osascript /path/to/SpotifyControl.scrpt"` in your `.bash_profile`.
 
 If you have `git`, even simpler will be to clone this repository with 
-`git clone git://github.com/dronir/SpotifyControl.git` and then edit 
-`.profile` as above. This will also make it easy to keep up to date 
-with possible updates to the script.
+`git clone git://github.com/abshinn/SpotifyControl.git` and then edit 
+`.bash_profile` as above. This will also make it easy to keep up to 
+date with possible updates to the script.
 
 
 ## Usage
 
-* To start Spotify playback, type `spotify start` or `spotify play`. 
+* To start Spotify playback, type `spot start` or `spot play`. 
 If you do this locally and Spotify is not running, it will start. 
 Remotely, Spotify will not start properly. Optionally, pass a Spotify URI as a second argument.
-* To pause Spotify playback, type `spotify stop` or `spotify pause`.
-* To toggle playback, type `spotify play/pause`.
-* To go to the next track, type `spotify next`.
-* To go to the previous track, type `spotify previous` or `spotify 
+* To pause Spotify playback, type `spot stop` or `spot pause`.
+* To toggle playback, type `spot play/pause`.
+* To go to the next track, type `spot next`.
+* To go to the previous track, type `spot previous` or `spot 
 prev`.
 * To print information about the currently playing track, 
-type `spotify info`
-* To jump to a particular time in the track, type `spotify jump N`,
+type `spot info`
+* To jump to a particular time in the track, type `spot jump N`,
 where N is the track position in seconds.
-* To fast forward, type `spotify forward N` where N is the number of
+* To fast forward, type `spot forward N` where N is the number of
 seconds to jump ahead.
-* To rewind, type `spotify rewind N` where N is the number of
+* To rewind, type `spot rewind N` where N is the number of
 seconds to jump backwards.
-* To change volume, type `spotify volume N` where N is a number between
+* To change volume, type `spot volume N` or `spot vol N` where N is a number between
 0 and 100.
-* To toggle shuffle, type `spotify shuffle`.
-* To toggle repeat, type `spotify repeat`.
-* To show a list of these commands, just type `spotify`.
+* To toggle shuffle, type `spot shuffle`.
+* To toggle repeat, type `spot repeat`.
+* To show a list of these commands, just type `spot`.
+
 
 ### Over SSH
 
